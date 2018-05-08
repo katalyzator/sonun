@@ -1,0 +1,170 @@
+{% load static filters embed_video_tags %}
+{% load i18n %}
+
+<!DOCTYPE html>
+<html lang="ru">
+  {% include "includes/_head.html" %}
+  <body>
+    <div class="uk-offcanvas-content">
+      <div id="hola">
+        <div id="preloader"><span></span><span></span></div>
+      </div>
+      <div class="page-wrap">
+        <div class="home">
+          {% include "includes/_sidebar.html" %}
+          <section class="banner-about-us" style="background-image: url(/static/img/jpg/about-banner.jpg); background-repeat: no-repeat; background-size: 2633px 700px; background-position-y: calc(-35.96px);" uk-parallax="bgy: -200">
+            <div class="uk-container">
+              {% include "includes/_mini_nav.html" %}
+            </div>
+          </section>
+          <section class="about-us">
+            <div class="uk-container">
+              <h2>{% trans 'About us' %}</h2>
+              <div class="uk-grid uk-child-width-1-2@m" uk-grid="">
+                {% if about %}
+                  {% if LANGUAGE_CODE == 'en' %}
+                    {% with parts=about.en_content|truncatesmart %}
+                      <div>
+                        <p>
+                          {{ parts.first|linebreaks }}
+                        </p>
+                      </div>
+                      <div>
+                        <p>
+                          {{ parts.second|linebreaks }}
+                        </p>
+                      </div>
+                    {% endwith %}
+                  {% else %}
+                    {% with parts=about.content|truncatesmart %}
+                      <div>
+                        <p>
+                          {{ parts.first|linebreaks }}
+                        </p>
+                      </div>
+                      <div>
+                        <p>
+                          {{ parts.second|linebreaks }}
+                        </p>
+                      </div>
+                    {% endwith %}
+                  {% endif %}
+                {% else %}
+                  {% blocktrans %}
+                  <div>
+                    <p>
+                      During this period the factory has reached the quality of world-class production. Today classic handmade furniture produced by the company SONUN FURNITURE is sold not only in Kyrgyzstan, but also abroad.
+                      To date, about one hundred models of art furniture from CLASSICS to MODERN are produced.
+                    </p>
+                  </div>
+                  <div>
+                    <p>
+                      Today, a variety of interior items are on sale. But all of them have one extremely important drawback - they are executed according to the template. To be sure of the originality and uniqueness of the furnishings of your apartment or house,
+                      you can order in ART Furniture company the manufacture of exclusive handicrafts.
+                    </p>
+                  </div>
+                  {% endblocktrans %}
+                {% endif %}
+              </div>
+              <div class="uk-grid uk-child-width-1-4@m uk-child-width-1-2@s uk-text-left@s uk-text-center" uk-grid="">
+                <div class="uk-first-column">
+                  <div class="image"><img src="/static/img/png/ab1.png" alt=""></div>
+                  <div class="item"><span class="counter">{{about.orders}}</span></div>
+                  <div class="description">
+                    <p>{% trans "successfully completed orders" %}</p>
+                  </div>
+                </div>
+                <div>
+                  <div class="image"><img src="/static/img/png/ab2.png" alt=""></div>
+                  <div class="item"><span class="counter">{{about.employees}}</span></div>
+                  <div class="description">
+                    <p>{% trans "best employees" %}</p>
+                  </div>
+                </div>
+                <div>
+                  <div class="image"><img src="/static/img/png/ab3.png" alt=""></div>
+                  <div class="item"><span class="counter">{{about.experience}}</span></div>
+                  <div class="description">
+                    <p>{% trans "years of experience in the market" %}</p>
+                  </div>
+                </div>
+                <div>
+                  <div class="image"><img src="/static/img/png/ab4.png" alt=""></div>
+                  <div class="item"><span class="counter">{{about.clients}}</span></div>
+                  <div class="description">
+                    <p>{% trans "satisfied customers" %}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+          {% if about.youtube_vid %}
+            <section uk-scrollspy="target: > iframe; cls:uk-animation-slide-bottom-medium; delay: 100; repeat: true">
+              <iframe width="100%" height="500" src="https://www.youtube.com/embed/{% if youtube %}{{about.youtube_vid}}{%else%}X8Z8okhkjv8{%endif%}" frameborder="0" allow="encrypted-media" allowfullscreen></iframe>
+            </section>
+          {% endif %}
+          {% if team.count %}
+            <section class="team">
+              <div class="uk-grid uk-grid-collapse" uk-grid="" uk-height-match="target: > div > div > div > div">
+                <div class="uk-width-expand@l uk-position-relative uk-first-column">
+                  <div class="uk-text-left uk-flex-middle uk-flex uk-flex-middle" uk-scrollspy="target: > div; cls:uk-animation-slide-bottom-medium; delay: 100; repeat: true">
+                    <div class="uk-scrollspy-inview uk-animation-slide-bottom-medium" style="">
+                      <div class="custom-padding" style="padding-left: 40px;">
+                        <h2>{% trans "Team of professionals" %}</h2>
+                        <div class="uk-grid uk-child-width-1-3@l uk-child-width-1-2@m uk-child-width-1-2" uk-grid="">
+                          {% for employee in team %}
+                            <div class="uk-first-column">
+                              <div class="image">
+                                <div class="uk-card uk-cover-container"><img src="/media/{{employee.image}}" alt="" uk-cover="" class="uk-cover" style="width: 244px; height: 190px;">
+                                  <canvas width="570" height="510"></canvas>
+                                </div>
+                              </div>
+                              <div class="text">
+                                {% if LANGUAGE_CODE == 'en' %}
+                                  <h5>{{employee.en_position}}</h5>
+                                  <h4>{{employee.en_name}}</h4>
+                                {% else %}
+                                  <h5>{{employee.position}}</h5>
+                                  <h4>{{employee.name}}</h4>
+                                {% endif %}
+                              </div>
+                            </div>
+                          {% endfor %}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="uk-width-1-3@l">
+                  <div>
+                    <div class="uk-position-relative uk-visible-toggle uk-light uk-slideshow" uk-slideshow=" animation: scale">
+                      <div class="uk-slideshow-items" style="height: 227px; min-height: 798px;">
+                        <div class="uk-active uk-transition-active" style="z-index: -1;">
+                          <div class="uk-position-cover uk-animation-kenburns uk-animation-reverse uk-transform-origin-center"><img src="/static/img/jpg/sonun.jpg" alt="" uk-cover="" class="uk-cover" style="width: 497px; height: 798px;"></div>
+                        </div>
+                        <div>
+                          <div class="uk-position-cover uk-animation-kenburns uk-animation-reverse uk-transform-origin-center"><img src="/static/img/jpg/about-banner.jpg" alt="" uk-cover="" class="uk-cover"></div>
+                        </div>
+                      </div><a class="uk-position-bottom-left uk-position-small" href="#" uk-slideshow-item="previous"><span uk-icon="icon: arrow-left; ratio: 2" class="uk-icon"><svg width="40" height="40" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" ratio="2"> <polyline fill="none" stroke="#000" points="10 14 5 9.5 10 5"></polyline> <line fill="none" stroke="#000" x1="16" y1="9.5" x2="5" y2="9.52"></line></svg></span></a><a class="uk-position-bottom-right uk-position-small" href="#" uk-slideshow-item="next"><span uk-icon="icon: arrow-right; ratio: 2" class="uk-icon"><svg width="40" height="40" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" ratio="2"> <polyline fill="none" stroke="#000" points="10 5 15 9.5 10 14"></polyline> <line fill="none" stroke="#000" x1="4" y1="9.5" x2="15" y2="9.5"></line></svg></span></a>
+                      <ul class="uk-slideshow-nav uk-dotnav uk-flex-center uk-margin uk-position-bottom-center uk-position-small"><li uk-slideshow-item="0" class="uk-active"><a href="#"></a></li><li uk-slideshow-item="1"><a href="#"></a></li></ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+          {% endif %}
+          {% if testimonial.count %}
+            {% include "includes/_testis.html" %}
+          {% endif %}
+          <section class="maps-block" uk-scrollspy="target: &gt; iframe; cls:uk-animation-slide-right-medium; delay: 100; repeat: true">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d11696.414767484352!2d74.5756082!3d42.870655500000005!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sru!2skg!4v1523537042699" width="100%" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+          </section>
+          {% include "includes/_footer.html" %}
+      </div>
+      </div>
+    </div>
+
+    {% include "_base_js.html" %}
+
+  </body>
+</html>

@@ -1,0 +1,41 @@
+{% load static i18n tz %}
+<footer>
+    <div class="uk-container" uk-scrollspy="target: &gt; div; cls:uk-animation-slide-bottom-medium; delay: 100; repeat: true" id="contact-form">
+        <div class="uk-text-center uk-margin-large-bottom">
+        <h3>{% trans 'Contacts information' %}</h3>
+        <p>{% trans 'Leave your details and we will contact you or use the contact information and contact us' %}</p>
+        </div>
+        {% include "includes/_messages.html" %}
+        <div class="uk-grid uk-grid-large uk-child-width-1-2@m" uk-grid="">
+        <div>
+            <form action="{% url 'letters' %}" method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <div class="uk-margin-medium">
+                    <button class="uk-button uk-button-default" type="submit">{% trans 'Send' %}</button>
+                </div>
+            </form>
+        </div>
+        <div>
+            <ul>
+                {% if contacts %}
+                    {% if LANGUAGE_CODE == 'en' %}
+                        <li><a>{{contacts.en_address}}</a></li>
+                    {% else %}
+                        <li><a>{{contacts.address}}</a></li>
+                    {% endif %}
+                    <li><a href="tel: {{ contacts.telephone }}">{{ contacts.telephone }}</a></li>
+                    <li><a href="mailto: {{ contacts.email }}">{{ contacts.email }}</a></li>
+                {% else %}
+                    <li><a>{% trans 'kyrgyzstan, bishkek soviet / akhunbaeva 14a' %}</a></li>
+                    <li><a href="tel: +996 (706) 344 212">+996 (706) 344 212</a></li>
+                    <li><a href="mailto: sonunmebel@mail.com">sonunmebel@mail.com</a></li>
+                {% endif %}
+            </ul>
+        </div>
+        </div>
+        <div class="copyright uk-margin-xlarge-top uk-text-center">
+        <p>©2012-{% now 'Y' %} Sonun mebel</p>
+        </div>
+    </div>
+</footer>

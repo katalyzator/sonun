@@ -1,0 +1,624 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-05-04 00:45+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
+"%100>=11 && n%100<=14)? 2 : 3);\n"
+
+#: main/forms.py:13
+msgid "Fullname"
+msgstr "ФИО"
+
+#: main/forms.py:15 main/templates/emails/new_request.html:133
+msgid "Telephone"
+msgstr "Теле"
+
+#: main/forms.py:26
+#, fuzzy
+#| msgid "* Enter your e-mail"
+msgid "Your E-mail"
+msgstr "* Введите ваша почта"
+
+#: main/models.py:49 main/models.py:59 main/models.py:78 main/models.py:80
+#: main/models.py:172 main/models.py:227 main/models.py:310
+msgid "Type the english translation"
+msgstr "Напишите на английском"
+
+#: main/models.py:64
+msgid "Type the youtube embeded code, for example: X8Z8okhkjv8"
+msgstr "Напишите код назначение, например: X8Z8okhkjv8"
+
+#: main/models.py:82
+#, fuzzy
+#| msgid "years of experience in the market"
+msgid "Years of experience"
+msgstr "лет опыта на рынке"
+
+#: main/models.py:83
+#, fuzzy
+#| msgid "best employees"
+msgid "Number of employees"
+msgstr "великолепных сотрудников"
+
+#: main/models.py:84
+msgid "Number of orders"
+msgstr "успешно выполненных заказов"
+
+#: main/models.py:85
+#, fuzzy
+#| msgid "Our clients"
+msgid "Number of clients"
+msgstr "довольных клиентов"
+
+#: main/models.py:87
+msgid "Youtube video link"
+msgstr "Видео на Ютубе"
+
+#: main/models.py:87
+msgid "For example: https://www.youtube.com/watch?v=oBT4FR84PSg"
+msgstr "Например: https://www.youtube.com/watch?v=oBT4FR84PSg"
+
+#: main/models.py:94 main/models.py:100 main/models.py:108 main/models.py:153
+#: main/models.py:294
+msgid "Type name in english"
+msgstr "Напишите имя на английском"
+
+#: main/models.py:94
+msgid "English employee name"
+msgstr "ФИО сотрудник"
+
+#: main/models.py:99
+#, fuzzy
+#| msgid "Location"
+msgid "Position"
+msgstr "Позиция"
+
+#: main/models.py:100
+#, fuzzy
+#| msgid "Type name in english"
+msgid "Position in english"
+msgstr "Напишите позиция на английском"
+
+#: main/models.py:120
+msgid "Available"
+msgstr "Доступные"
+
+#: main/models.py:127 main/models.py:133 main/models.py:150
+msgid "Type in english translation"
+msgstr "Напишите на английском"
+
+#: main/models.py:140 main/models.py:155
+msgid "Type address in english"
+msgstr "Напишите адрес на английском"
+
+#: main/models.py:174 main/models.py:237
+msgid "Material"
+msgstr "Материалы"
+
+#: main/models.py:174 main/models.py:237
+msgid "First material, Second material"
+msgstr "Первый материал, Второй материал"
+
+#: main/models.py:175 main/models.py:238
+#, fuzzy
+#| msgid "Material"
+msgid "English Material"
+msgstr "Материалы"
+
+#: main/models.py:175 main/models.py:238
+#, fuzzy
+#| msgid "First material, Second material"
+msgid "Type in english, For example: First material, Second material"
+msgstr "Первый материал, Второй материал"
+
+#: main/models.py:182 main/models.py:240 main/templates/project.html:35
+#: main/templates/service.html:35
+msgid "Category"
+msgstr "Категория"
+
+#: main/models.py:214
+msgid "The product"
+msgstr "Продукт"
+
+#: main/models.py:214
+msgid "Choose a project"
+msgstr "Выберите проект"
+
+#: main/models.py:224
+msgid "Type in english"
+msgstr "Напишите на английском"
+
+#: main/models.py:292
+msgid "Type fullname in english"
+msgstr "Напишите ФИО на английском"
+
+#: main/models.py:293
+msgid "For example: megacom, oobamarket, oshka"
+msgstr "Например: megacom, oobamarket, oshka"
+
+#: main/models.py:335 main/templates/emails/customer_new_product.html:142
+#, fuzzy
+#| msgid "We have added a new product to our website, please check it: {title}"
+msgid "We added a new project, check it out"
+msgstr "Мы добавили новый продукт на наш сайт, пожалуйста, посмотрите его"
+
+#: main/templates/about-us.html:22 main/templates/catalog.html:57
+#: main/templates/includes/_mini_nav.html:4 main/views.py:97
+msgid "About us"
+msgstr "О нас"
+
+#: main/templates/about-us.html:53
+#, fuzzy
+#| msgid ""
+#| "\n"
+#| "              <div>\n"
+#| "                <p>\n"
+#| "                  During this period the factory has reached the quality "
+#| "of world-class production. Today classic handmade furniture produced by "
+#| "the company SONUN FURNITURE is sold not only in Kyrgyzstan, but also "
+#| "abroad.\n"
+#| "                  To date, about one hundred models of art furniture from "
+#| "CLASSICS to MODERN are produced.\n"
+#| "                </p>\n"
+#| "              </div>\n"
+#| "              <div>\n"
+#| "                <p>\n"
+#| "                  Today, a variety of interior items are on sale. But all "
+#| "of them have one extremely important drawback - they are executed "
+#| "according to the template. To be sure of the originality and uniqueness "
+#| "of the furnishings of your apartment or house,\n"
+#| "                  you can order in ART Furniture company the manufacture "
+#| "of exclusive handicrafts.\n"
+#| "                </p>\n"
+#| "              </div>\n"
+#| "              "
+msgid ""
+"\n"
+"                  <div>\n"
+"                    <p>\n"
+"                      During this period the factory has reached the quality "
+"of world-class production. Today classic handmade furniture produced by the "
+"company SONUN FURNITURE is sold not only in Kyrgyzstan, but also abroad.\n"
+"                      To date, about one hundred models of art furniture "
+"from CLASSICS to MODERN are produced.\n"
+"                    </p>\n"
+"                  </div>\n"
+"                  <div>\n"
+"                    <p>\n"
+"                      Today, a variety of interior items are on sale. But "
+"all of them have one extremely important drawback - they are executed "
+"according to the template. To be sure of the originality and uniqueness of "
+"the furnishings of your apartment or house,\n"
+"                      you can order in ART Furniture company the manufacture "
+"of exclusive handicrafts.\n"
+"                    </p>\n"
+"                  </div>\n"
+"                  "
+msgstr ""
+"\n"
+"              <div>\n"
+"                <p>\n"
+"                  За этот период завод достиг качества мирового класса. "
+"Сегодня классическая мебель ручной работы, производимая компанией SONUN "
+"FURNITURE, продается не только в Кыргызстане, но и за рубежом.\n"
+"                  На сегодняшний день около ста моделей художественной "
+"мебели из классики до современности.\n"
+"                </p>\n"
+"              </div>\n"
+"              <div>\n"
+"                <p>\n"
+"                  Сегодня в продаже продаются разнообразные предметы "
+"интерьера. Но все у них есть один чрезвычайно важный недостаток - они "
+"выполняются в соответствии с шаблоном. Чтобы убедиться в оригинальности и "
+"уникальности обстановка вашей квартиры или дома,\n"
+"                  вы можете заказать в компании ART Furniture производство "
+"эксклюзивные изделия ручной работы.\n"
+"                </p>\n"
+"              </div>\n"
+"              "
+
+#: main/templates/about-us.html:74
+msgid "successfully completed orders"
+msgstr "успешно выполненных заказов"
+
+#: main/templates/about-us.html:81
+msgid "best employees"
+msgstr "великолепных сотрудников"
+
+#: main/templates/about-us.html:88
+msgid "years of experience in the market"
+msgstr "лет опыта на рынке"
+
+#: main/templates/about-us.html:95
+msgid "satisfied customers"
+msgstr "довольных клиентов"
+
+#: main/templates/about-us.html:115
+msgid "Team of professionals"
+msgstr "Команда профессионалов"
+
+#: main/templates/catalog.html:108 main/templates/project.html:111
+#: main/templates/service.html:110
+msgid "Show more"
+msgstr "Показать еще"
+
+#: main/templates/emails/customer_new_product.html:136
+#: main/templates/emails/simple.html:136
+msgid "Visit our site"
+msgstr "Посещаете наш сайт"
+
+#: main/templates/emails/customer_new_product.html:159
+#: main/templates/emails/new_request.html:148
+#: main/templates/emails/simple.html:160
+msgid "Sent by"
+msgstr "Отправил"
+
+#: main/templates/emails/customer_new_product.html:160
+#: main/templates/emails/simple.html:161
+msgid "Unsubscribe"
+msgstr "Отписаться от рассылки"
+
+#: main/templates/emails/customer_verification.html:14
+#, fuzzy
+#| msgid ""
+#| "Thank you for choosing SONUN, we will inform you about any product we add "
+#| "to our website."
+msgid ""
+"Thank you {{subscriber}} for choosing SONUN, we will inform you about any "
+"product we add to our website."
+msgstr ""
+"Благодарим вас {{subscriber}} за выбор SONUN, мы сообщим вам о любом "
+"продукте, который мы добавим на нашем сайте."
+
+#: main/templates/emails/new_request.html:128
+msgid "New request received from:"
+msgstr "Новая заявка получена от:"
+
+#: main/templates/emails/simple.html:142 main/views.py:242
+msgid "Thank you for choosing SONUN"
+msgstr "Спасибо что выбрали SONUN"
+
+#: main/templates/includes/_footer.html:5
+msgid "Contacts information"
+msgstr "Контактная информация"
+
+#: main/templates/includes/_footer.html:6
+msgid ""
+"Leave your details and we will contact you or use the contact information "
+"and contact us"
+msgstr ""
+"Оставьте свои данные и мы свяжемся с вами или воспользуйтесь контактной "
+"информациейи свяжитесь с нами сами"
+
+#: main/templates/includes/_footer.html:15
+msgid "Send"
+msgstr "Отправить"
+
+#: main/templates/includes/_footer.html:30
+msgid "kyrgyzstan, bishkek soviet / akhunbaeva 14a"
+msgstr "КЫРГЫЗСТАН, Г.БИШКЕК СОВЕТСКАЯ / АХУНБАЕВА 14А"
+
+#: main/templates/includes/_header.html:4
+#: main/templates/includes/_sidebar.html:68
+msgid "Menu"
+msgstr "Меню"
+
+#: main/templates/includes/_mini_nav.html:3 main/views.py:70
+msgid "Home"
+msgstr "Главная"
+
+#: main/templates/includes/_sidebar.html:45
+#: main/templates/includes/_sidebar.html:97
+msgid "HOME"
+msgstr "ГЛАВНАЯ"
+
+#: main/templates/includes/_sidebar.html:48
+#: main/templates/includes/_sidebar.html:100
+msgid "ABOUT US"
+msgstr "О НАС"
+
+#: main/templates/includes/_sidebar.html:51
+#: main/templates/includes/_sidebar.html:101
+msgid "CATALOG"
+msgstr "КАТАЛОГ"
+
+#: main/templates/includes/_sidebar.html:54
+#: main/templates/includes/_sidebar.html:102
+msgid "OUR CLIENTS"
+msgstr "НАИШ КЛИЕНТЫ"
+
+#: main/templates/includes/_sidebar.html:57
+#: main/templates/includes/_sidebar.html:103
+msgid "CONTACT"
+msgstr "КОНТАКТЫ"
+
+#: main/templates/includes/_testis.html:4
+msgid "Testimonials our clients"
+msgstr "Отзывы клиенты"
+
+#: main/templates/index.html:21
+msgid "Manufacturing of furniture"
+msgstr "Изготовление мебели"
+
+#: main/templates/index.html:21
+msgid "from classic to modern"
+msgstr "от классики до модерна"
+
+#: main/templates/index.html:21
+msgid "in order"
+msgstr "под заказ"
+
+#: main/templates/index.html:21 main/templates/index.html:74
+#: main/templates/index.html:168
+msgid "See catalog"
+msgstr "Смотрет каталог"
+
+#: main/templates/index.html:28 main/templates/index.html:51
+msgid "about us"
+msgstr "о нас"
+
+#: main/templates/index.html:29 main/templates/index.html:52
+msgid "catalog"
+msgstr "каталог"
+
+#: main/templates/index.html:30 main/templates/index.html:53
+msgid "contact"
+msgstr "контакты"
+
+#: main/templates/index.html:113 main/templates/index.html:132
+msgid "principle"
+msgstr "принцип"
+
+#: main/templates/index.html:135
+msgid "in your hands!"
+msgstr "только своими руками!"
+
+#: main/templates/index.html:138
+msgid ""
+"All our furniture is made by a pen and in this way the furniture is "
+"qualitative and practical."
+msgstr ""
+"Вся наша мебель изготавливается ручно и по-этому мебель качественна и "
+"практична."
+
+#: main/templates/index.html:154 main/templates/index.html:163
+msgid "A few informations about us"
+msgstr "Краткая информация о нас"
+
+#: main/templates/index.html:164
+#, fuzzy
+#| msgid ""
+#| "The furniture factory of classic handmade furniture and art furniture "
+#| "\"SONUN FURNITURE\" was founded in 2012."
+msgid ""
+"The furniture factory of classic handmade furniture and art furniture "
+"\"SONUN FURNITURE\" was founded in 2012."
+msgstr ""
+"Мебельная фабрика классической мебели ручной работы и художественной мебели "
+"SONUN МЕБЕЛЬ была основана в 2012 году."
+
+#: main/templates/index.html:165
+#, fuzzy
+#| msgid ""
+#| "During this period, the factory reached the quality of world-class "
+#| "production. Today classic handmade furniture produced by the company "
+#| "SONUN FURNITURE is sold not only in Kyrgyzstan, but also abroad."
+msgid ""
+"During this period, the factory reached the quality of world-class "
+"production. Today classic handmade furniture produced by the company SONUN "
+"FURNITURE is sold not only in Kyrgyzstan, but also abroad."
+msgstr ""
+"В этот период завод достиг качества мирового класса,Сегодня классическая "
+"мебель ручной работы, производимая компанией SONUN,МЕБЕЛЬ продается не "
+"только в Кыргызстане, но и за рубежом."
+
+#: main/templates/index.html:166
+msgid ""
+"To date, about one hundred models of art furniture from CLASSICS to MODERN "
+"are produced."
+msgstr ""
+"На сегодняшний день производится около ста моделей арт мебели от КЛАССИКИ до "
+"МОДЕРНА."
+
+#: main/templates/index.html:179
+msgid "Our services"
+msgstr "Наши услуги"
+
+#: main/templates/index.html:209
+msgid "3D call designer"
+msgstr "3D дизайнер"
+
+#: main/templates/index.html:209 main/templates/index.html:219
+#: main/templates/project.html:137 main/templates/service.html:131
+msgid "Read more"
+msgstr "Подробнее"
+
+#: main/templates/index.html:219
+msgid "3D furniture design"
+msgstr "3D мебел дизайнер"
+
+#: main/templates/index.html:278
+msgid "To catalog"
+msgstr "Перейти к каталогу"
+
+#: main/templates/index.html:287
+msgid "Get a profitable offer from sonun mebel"
+msgstr "ПОЛУЧАЙТЕ ВЫГОДНЫЕ ПРЕДЛОЖЕНИЕ ОТ SONUN MEBEL"
+
+#: main/templates/project.html:25 main/templates/service.html:25
+msgid "information about this project"
+msgstr "информация о проекте"
+
+#: main/templates/project.html:27 main/templates/service.html:27
+msgid "Client"
+msgstr "Клиент"
+
+#: main/templates/project.html:42 main/templates/service.html:42
+msgid "Date"
+msgstr "Дата"
+
+#: main/templates/project.html:46 main/templates/service.html:46
+msgid "Location"
+msgstr "Месторасположения"
+
+#: main/templates/project.html:57 main/templates/service.html:57
+msgid "Share"
+msgstr "подделиться"
+
+#: main/templates/project.html:76 main/templates/service.html:76
+#, fuzzy
+#| msgid "Material"
+msgid "Materials"
+msgstr "Материалы"
+
+#: main/templates/project.html:91 main/templates/service.html:91
+msgid "Project gallery"
+msgstr "Фотографии проекта"
+
+#: main/templates/project.html:149 main/templates/service.html:143
+msgid ""
+"Comfort is not furniture, not a house, not a place. Comfort is when the soul "
+"is calm."
+msgstr ""
+"Комфорт - это не мебель, не дом, не место. Комфорт - это когда на "
+"душеспокойно."
+
+#: main/views.py:67
+msgid "{}"
+msgstr ""
+
+#: main/views.py:109
+msgid "Contact"
+msgstr "Контакты"
+
+#: main/views.py:134
+msgid "Catalog"
+msgstr "Каталог"
+
+#: main/views.py:217
+msgid "Our clients"
+msgstr "Наши клиенты"
+
+#: main/views.py:227
+msgid "Bad request"
+msgstr "Плохой запрос"
+
+#: main/views.py:231
+msgid "* Enter your e-mail"
+msgstr "* Введите ваша почта"
+
+#: main/views.py:234
+msgid "* Invalid e-mail address"
+msgstr "* Невенрая почта"
+
+#: main/views.py:237
+msgid "* E-mail is already token"
+msgstr "* Почта уже регистрирована"
+
+#: main/views.py:246
+msgid "Thanks for the subscription."
+msgstr "Спасибо за подписку"
+
+#: main/views.py:256
+msgid "You succesfully unsubscribed"
+msgstr "Вы успешно отписались от рассылки"
+
+#: main/views.py:269
+#, fuzzy, python-brace-format
+#| msgid "New request received from:"
+msgid "New request from: {client}"
+msgstr "Новая заявка получена от:"
+
+#: main/views.py:274
+msgid "Your request sent successfully"
+msgstr "Ваша заявка успешно оправлено"
+
+#: main/views.py:276
+msgid "All fields are required"
+msgstr "Все поля обязательны"
+
+#: mebel_app/settings.py:158
+msgid "RU"
+msgstr ""
+
+#: mebel_app/settings.py:159
+msgid "EN"
+msgstr ""
+
+#, fuzzy
+#~ msgid "Изготовление мебели"
+#~ msgstr "Manufacturing of furniture"
+
+#~ msgid "от классики до модерна"
+#~ msgstr "from classic to modern"
+
+#~ msgid "под заказ"
+#~ msgstr "in order"
+
+#, fuzzy
+#~| msgid "Please, confirm your subscribtion: {token}"
+#~ msgid "Please, confirm your subscribtion"
+#~ msgstr "Пожалуйста, подтвердите ваша подписка"
+
+#~ msgid ""
+#~ "We sent a confirmation letter to your email address, thanks for your "
+#~ "subscribtion"
+#~ msgstr ""
+#~ "Мы отправили письмо с подтверждением на ваш адрес электронной почты, "
+#~ "спасибо за вашу подписку"
+
+#~ msgid "Hello world!"
+#~ msgstr "Привет мир!"
+
+#~ msgid ""
+#~ "\n"
+#~ "                    During this period the factory has reached the "
+#~ "quality of world-class production. Today classic handmade furniture "
+#~ "produced by the company SONUN FURNITURE is sold not only in Kyrgyzstan, "
+#~ "but also abroad.\n"
+#~ "\n"
+#~ "                    To date, about one hundred models of art furniture "
+#~ "from CLASSICS to MODERN are produced.\n"
+#~ "                  "
+#~ msgstr ""
+#~ "\n"
+#~ "                    За этот период завод достиг качества мирового "
+#~ "производства. Сегодня классическая мебель ручной работы, изготовленная "
+#~ "компания SONUN FURNITURE продается не только в Кыргызстане, но и за "
+#~ "рубежом.\n"
+#~ "\n"
+#~ "                    На сегодняшний день около ста моделей художественной "
+#~ "мебели из Классика к современности производится.\n"
+#~ "                  "
+
+#~ msgid ""
+#~ "\n"
+#~ "                    Today, a variety of interior items are on sale. But "
+#~ "all of them have one extremely important drawback - they are executed "
+#~ "according to the template. To be sure of the originality and uniqueness "
+#~ "of the furnishings of your apartment or house, you can order in ART "
+#~ "Furniture company the manufacture of exclusive handicrafts.\n"
+#~ "                  "
+#~ msgstr ""
+#~ "\n"
+#~ "Сегодня в продаже продаются разнообразные предметы интерьера, но всеу них "
+#~ "есть один чрезвычайно важный недостаток - они выполняются согласнок "
+#~ "шаблону. Чтобы убедиться в оригинальности и уникальностиобстановка вашей "
+#~ "квартиры или дома, вы можете заказать в художественной мебели,Компания "
+#~ "производит эксклюзивные изделия ручной работы.\n"
+#~ "                  "

@@ -1,0 +1,127 @@
+{% load static i18n %}
+
+<!DOCTYPE html>
+<html lang="ru">
+  {% include "includes/_head.html" %}
+  <body>
+    <div class="uk-offcanvas-content">
+      <div id="hola">
+        <div id="preloader"><span></span><span></span></div>
+      </div>
+      <div class="page-wrap">
+        <div class="home">
+          {% include "includes/_sidebar.html" %}
+          <section class="catalog">
+            <div class="uk-container breadcrumb">
+              {% include "includes/_mini_nav.html" %}
+            </div>
+            <div class="uk-position-relative uk-visible-toggle uk-light" uk-slideshow="animation: push">
+              <ul class="uk-slideshow-items">
+                {% if pc_object|length != 0 %}
+                {% for i in pc_object %}
+                  {% for i in i.products %}
+                    <li>
+                      <div class="uk-position-cover image" uk-slideshow-parallax="scale: 1.2,1.2,1"><img src="/media/{{i.image}}" alt="" uk-cover=""></div>
+                      <div class="uk-position-cover" uk-slideshow-parallax="opacity: 0,0,0.2; backgroundColor: #000,#000"></div>
+                      <div class="uk-position-center uk-position-medium uk-text-center">
+                        <div uk-slideshow-parallax="scale: 1,1,0.8">
+                          {% if LANGUAGE_CODE == 'en' %}
+                            <h3 uk-slideshow-parallax="x: 100,-100">{{i.category.en_name}}</h3>
+                            <h2 uk-slideshow-parallax="x: 200,-200">{{i.en_title}}</h2>
+                          {% else %}
+                            <h3 uk-slideshow-parallax="x: 100,-100">{{i.category.name}}</h3>
+                            <h2 uk-slideshow-parallax="x: 200,-200">{{i.title}}</h2>
+                          {% endif %}
+                          <div class="uk-text-center uk-margin all-project" uk-slideshow-parallax="x: 300,-300">
+                            {% if LANGUAGE_CODE == 'en' %}
+                              <a class="uk-button uk-button-default" href="{% url 'project' i.slug %}">Read more
+                              <span class="bg"><span></span></span></a>
+                            {% else %}
+                              <a class="uk-button uk-button-default" href="{% url 'project' i.slug %}">Подробнее
+                              <span class="bg"><span></span></span></a>
+                            {% endif %}
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                  {% endfor %}
+                {% endfor %}
+                {% else %}
+                  <li>
+                    <div class="uk-position-cover image" uk-slideshow-parallax="scale: 1.2,1.2,1"><img src="/static/img/jpg/catalog.jpg" alt="" uk-cover=""></div>
+                    <div class="uk-position-cover" uk-slideshow-parallax="opacity: 0,0,0.2; backgroundColor: #000,#000"></div>
+                    <div class="uk-position-center uk-position-medium uk-text-center">
+                      <div uk-slideshow-parallax="scale: 1,1,0.8">
+                        <h3 uk-slideshow-parallax="x: 100,-100">классика</h3>
+                        <h2 uk-slideshow-parallax="x: 200,-200">Классический Орбитраж</h2>
+                        <div class="uk-text-center uk-margin all-project" uk-slideshow-parallax="x: 300,-300"><a class="uk-button uk-button-default" href="{% url 'about' %}">{% trans 'About us' %}<span class="bg"><span></span></span></a></div>
+                      </div>
+                    </div>
+                  </li>
+                {% endif %}
+              </ul>
+              <a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous="" uk-slideshow-item="previous"></a><a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next="" uk-slideshow-item="next"></a>
+            </div>
+          </section>
+          <section class="gallery_project">
+            <div class="uk-container" uk-scrollspy="target: &gt; ul; cls:uk-animation-slide-bottom-medium; delay: 100; repeat: true">
+              <ul class="uk-subnav uk-subnav-pill uk-flex-center uk-margin-remove uk-child-width-expand@l uk-child-width-1-6@m uk-child-width-1-4@s uk-child-width-1-2" uk-switcher="animation: uk-animation-slide-left-medium, uk-animation-slide-right-medium">
+                {% for i in pc_object %}
+                  <li>
+                    <a class="uk-flex uk-flex-middle" href="#">
+                      <div>
+                        <object id="my-svg{{forloop.counter}}" type="image/svg+xml" data="/static/img/svg/s{{forloop.counter}}.svg"></object>
+                        <!-- <img src="/static/img/png/t{{forloop.counter}}.png" alt=""> -->
+                        <h6>{{i.category.name}}</h6>
+                      </div>
+                    </a>
+                  </li>
+                {% endfor %}
+              </ul>
+              <ul class="uk-switcher uk-margin">
+                {% for i in pc_object %}
+                  <li>
+                    <div class="uk-grid uk-grid-collapse uk-child-width-1-2@s" uk-grid="">
+                      {% for i in i.products %}
+                        <div>
+                          <div class="item"><a class="link" href="{% url 'project' i.slug %}"></a>
+                            <div class="uk-cover-container image"><img src="/media/{{i.image}}" alt="" uk-cover="">
+                              <p class="uk-h4 uk-margin-remove">{{i.category.image}}</p>
+                            </div>
+                            <div class="back-link uk-position-cover uk-flex uk-flex-middle uk-flex-center">
+                              <div class="uk-text-center">
+                                {% if LANGUAGE_CODE == 'en' %}
+                                  <h4>{{i.category.en_name}}</h4>
+                                  <h3>{{i.en_title}}</h3><span uk-icon="icon: search; ratio: 2"></span>
+                                {% else %}
+                                  <h4>{{i.category.name}}</h4>
+                                  <h3>{{i.title}}</h3><span uk-icon="icon: search; ratio: 2"></span>
+                                {% endif %}
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      {% endfor %}
+                  </li>
+                {% endfor %}
+              </ul>
+              {% if pc_object|length > 15 %}
+                <div class="uk-text-center uk-margin all-project"><a class="uk-button uk-button-default" href="">{% trans 'Show more' %}<span class="bg"><span></span></span></a></div>
+              {% endif %}
+            </div>
+          </section>
+          {% if testimonial.count %}
+            {% include "includes/_testis.html" %}
+          {% endif %}
+          <section class="maps-block" uk-scrollspy="target: &gt; iframe; cls:uk-animation-slide-right-medium; delay: 100; repeat: true">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d11696.414767484352!2d74.5756082!3d42.870655500000005!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sru!2skg!4v1523537042699" width="100%" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+          </section>
+          {% include "includes/_footer.html" %}
+        </div>
+      </div>
+    </div>
+
+    {% include "_base_js.html" %}
+  
+  </body>
+</html>

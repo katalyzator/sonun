@@ -1,0 +1,221 @@
+{% load static %}
+{% load i18n %}
+
+<!DOCTYPE html>
+<html lang="ru">
+  {% include "includes/_head.html" %}
+  <body>
+    <div class="uk-offcanvas-content">
+      <div id="hola">
+        <div id="preloader"><span></span><span></span></div>
+      </div>
+      <div class="page-wrap">
+        <div class="home">
+          {% include "includes/_sidebar.html" %}
+          <section class="project" style="background-image: url(/media/{{project.image}});" uk-parallax="bgy: -200">
+            <div class="uk-container breadcrumb">
+              {% include "includes/_mini_nav.html" %}
+            </div>
+          </section>
+          <section class="about-project" uk-scrollspy="target: &gt; div; cls:uk-animation-slide-bottom-medium; delay: 100; repeat: true">
+            <div class="uk-container">
+              <div class="uk-grid uk-grid-large" uk-grid="">
+                <div class="uk-width-1-4@m">
+                  <div class="left-side">
+                    <h6>{% trans 'information about this project' %}</h6>
+                    {% if project.client_name %}
+                      <div class="uk-margin"><b>{{_('Client')}}</b>
+                        {% if LANGUAGE_CODE == 'en' %}
+                          <h4>{{project.en_client_name}}</h4>
+                        {% else %}
+                          <h4>{{project.client_name}}</h4>
+                        {% endif %}
+                      </div>
+                    {% endif %}
+                    <div class="uk-margin"><b>{{_('Category')}}</b>
+                      {% if LANGUAGE_CODE == 'en' %}
+                        <h4>{{project.category.en_name}}</h4>
+                      {% else %}
+                        <h4>{{project.category.name}}</h4>
+                      {% endif %}
+                    </div>
+                    <div class="uk-margin"><b>{{_('Date')}}</b>
+                      <h4>{{project.publish|date:'M d, Y'}}</h4>
+                    </div>
+                    {% if project.address %}
+                      <div class="uk-margin"><b>{{_('Location')}}</b>
+                        {% if LANGUAGE_CODE == 'en' %}
+                          <h4>{{project.en_address}}</h4>
+                        {% else %}
+                          <h4>{{project.address}}</h4>
+                        {% endif %}
+                      </div>
+                    {% endif %}
+                  </div>
+                  <div class="social">
+                    <div class="uk-grid uk-grid-collapse">
+                      <div class="uk-width-expand"><span>{{_('Share')}}</span></div>
+                      <div class="uk-width-auto"><a class="fb-share" href="https://www.facebook.com/sharer/sharer.php?u={{ request.build_absolute_uri|urlencode }}&t={{project.title}}" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a></div>
+                      <div class="uk-width-auto"><a class="tw-share" href="https://twitter.com/share?url={{ request.build_absolute_uri|urlencode }}&text={{project.title}}"><i class="fa fa-twitter" aria-hidden="true"></i></a></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="uk-width-expand@m">
+                  <div>
+                    {% if LANGUAGE_CODE == 'en' %}
+                      <h2>{{project.en_title}}</h2>
+                      <p>{{project.en_content|linebreaks}}</p>
+                    {% else %}
+                      <h2>{{project.title}}</h2>
+                      <p>{{project.content|linebreaks}}</p>
+                    {% endif %}
+                  </div>
+                </div>
+                <div class="uk-width-1-4@m">
+                  <div>
+                    <h6>{% trans 'Materials' %}</h6>
+                    <ul class="uk-list uk-list-bullet">
+                      {% for material in project.as_list %}
+                        <li>{{material}}</li>
+                      {% endfor %}
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+          {% if gallery.count %}
+            <section class="gallery_project_solo" uk-scrollspy="target: &gt; div; cls:uk-animation-slide-bottom-medium; delay: 100; repeat: true">
+              <div class="uk-container">
+                <div>
+                  <h2>{% trans 'Project gallery' %}</h2>
+                  <ul class="uk-margin" id="gallery">
+                    <li>
+                      <div class="uk-grid uk-grid-collapse uk-child-width-1-2" uk-grid="" id="projectGallery">
+                        {% for image in gallery %}
+                          <div>
+                            <div class="item" data-src="/media/{{image.image}}">
+                              <div class="uk-cover-container image"><img src="/media/{{image.image}}" alt="" uk-cover="">
+                                <p class="uk-h4 uk-margin-remove">Fade</p>
+                              </div>
+                              <div class="back-link uk-position-cover uk-flex uk-flex-middle uk-flex-center">
+                                <div class="uk-text-center"><span uk-icon="icon: search; ratio: 2"></span></div>
+                              </div>
+                            </div>
+                          </div>
+                        {% endfor %}
+                      </div>
+                    </li>
+                  </ul>
+                  {% if gallery_count.count > 4 %}
+                    <div class="uk-text-center uk-margin all-project"><a id="loadMore" class="uk-button uk-button-default" href="{% url 'more_gallery' project.slug %}" data-offset="{{gallery.count}}">{% trans 'Show more' %}<span class="bg"><span></span></span></a></div>
+                  {% endif %}
+                </div>
+              </div>
+            </section>
+          {% endif %}
+          {% if more_products.count %}
+            <section class="catalog" uk-scrollspy="target: &gt; div; cls:uk-animation-slide-bottom-medium; delay: 100; repeat: true">
+              <div class="uk-position-relative uk-visible-toggle uk-light" uk-slideshow="animation: push">
+                <ul class="uk-slideshow-items">
+                  {% for product in more_products %}
+                  <li>
+                    <div class="uk-position-cover image" uk-slideshow-parallax="scale: 1.2,1.2,1"><img src="/media/{{product.image}}" alt="" uk-cover=""></div>
+                    <div class="uk-position-cover" uk-slideshow-parallax="opacity: 0,0,0.2; backgroundColor: #000,#000"></div>
+                    <div class="uk-position-center uk-position-medium uk-text-center">
+                      <div uk-slideshow-parallax="scale: 1,1,0.8">
+                        {% if LANGUAGE_CODE == 'en' %}
+                          <h3 uk-slideshow-parallax="x: 100,-100">{{product.category.en_name}}</h3>
+                        {% else %}
+                          <h3 uk-slideshow-parallax="x: 100,-100">{{product.category.name}}</h3>
+                        {% endif %}
+                        {% if LANGUAGE_CODE == 'en' %}
+                          <h2 uk-slideshow-parallax="x: 200,-200">{{product.en_title}}</h2>
+                        {% else %}
+                          <h2 uk-slideshow-parallax="x: 200,-200">{{product.title}}</h2>
+                        {% endif %}
+                        <div class="uk-text-center uk-margin all-project" uk-slideshow-parallax="x: 300,-300"><a class="uk-button uk-button-default" href="{% url 'project' product.slug %}">{% trans 'Read more' %}<span class="bg"><span></span></span></a></div>
+                      </div>
+                    </div>
+                  </li>
+                  {% endfor %}
+                </ul><a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous="" uk-slideshow-item="previous"></a><a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next="" uk-slideshow-item="next"></a>
+              </div>
+            </section>
+          {% endif %}
+          <section class="slogan" uk-scrollspy="target: &gt; div; cls:uk-animation-slide-bottom-medium; delay: 100; repeat: true">
+            <div class="uk-container">
+              <div class="uk-text-center"><img src="/static/img/png/Divan1.png" alt="">
+                <h2>{% trans 'Comfort is not furniture, not a house, not a place. Comfort is when the soul is calm.' %}</h2>
+              </div>
+            </div>
+          </section>
+          {% include "includes/_testis.html" %}
+          <section class="maps-block" uk-scrollspy="target: &gt; iframe; cls:uk-animation-slide-right-medium; delay: 100; repeat: true">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d11696.414767484352!2d74.5756082!3d42.870655500000005!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sru!2skg!4v1523537042699" width="100%" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+          </section>
+          {% include "includes/_footer.html" %}
+        </div>
+      </div>
+    </div>
+
+    {% include "_base_js.html" %}
+    
+    <script type="text/javascript">
+      $(document).ready(function() {
+          $('.fb-share').click(function(e) {
+              e.preventDefault();
+              window.open($(this).attr('href'), 'fbShareWindow', 'height=450, width=550, top=' + ($(window).height() / 2 - 275) + ', left=' + ($(window).width() / 2 - 225) + ', toolbar=0, location=0, menubar=0, directories=0, scrollbars=0');
+              return false;
+          });
+          $('.tw-share').click(function(e) {
+              e.preventDefault();
+              window.open($(this).attr('href'), 'twShareWindow', 'height=450, width=550, top=' + ($(window).height() / 2 - 275) + ', left=' + ($(window).width() / 2 - 225) + ', toolbar=0, location=0, menubar=0, directories=0, scrollbars=0');
+              return false;
+          });
+          $('#loadMore').on('click', function(event){
+            event.preventDefault();
+            var offset = $(this).data('offset');
+            $.ajax({
+              type:'post',
+              url: '{% url "more_gallery" project.slug %}?offset='+offset,
+              dataType: 'json',
+              beforeSend: function(xhr, settings) {
+                if (!/^(GET|HEAD|OPTIONS|TRACE)$/i.test(settings.type) && !this.crossDomain) {
+                    xhr.setRequestHeader("X-CSRFToken", '{{csrf_token}}');
+                }
+              },
+              success: function(successResponse){
+                if(successResponse.error){
+                  $('#subscribeMessages').text(successResponse.error).attr('style','color:#c30;').delay(1800).fadeOut();
+                } else {
+                  var $galleryDiv = $('#projectGallery');
+                  for (var i = 0; i < successResponse.success.length; i++) {
+                    if(successResponse.success[i].limiter === false || !successResponse.success[i].gallery_image){
+                      var template = '<div>\
+                          <div class="item" data-src="'+successResponse.success[i].gallery_image.replace("\"","")+'">\
+                            <div class="uk-cover-container image"><img src="'+successResponse.success[i].gallery_image.replace("\"","")+'" alt="" uk-cover="">\
+                            </div>\
+                            <div class="back-link uk-position-cover uk-flex uk-flex-middle uk-flex-center">\
+                              <div class="uk-text-center"><span uk-icon="icon: search; ratio: 2"></span></div>\
+                            </div>\
+                          </div>\
+                        </div>\
+                      '
+                      $galleryDiv.append(template);
+                    } else {
+                      $('#loadMore').remove();
+                      return false;
+                    }
+                  }
+                }
+              },
+              error: function(errorResponse){
+                $('#subscribeMessages').text(errorResponse.error);
+              }
+            });
+          });
+      });
+    </script>
+  </body>
+</html>

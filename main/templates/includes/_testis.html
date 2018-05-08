@@ -1,0 +1,31 @@
+{% load i18n %}
+<section class="reviews" uk-scrollspy="target: &gt; div; cls:uk-animation-slide-left-medium; delay: 100; repeat: true">
+    <div class="uk-container"> 
+        <h3>{% trans 'Testimonials our clients' %}</h3>
+        <div class="slider-nav">
+        {% for i in testimonial %}
+            <div class="item">
+            <div class="uk-cover-container image"><img src="/media/{{i.client_image.image}}" uk-cover="" alt=""></div><span class="icon"></span>
+            </div>
+        {% endfor %}
+        </div>
+        <div class="slider-for">
+        {% for i in testimonial %}
+            {% for i in i.contents %}              
+            <div>
+                <div class="logo-reviews"><img src="/media/{{i.small_image}}" alt=""></div>
+                <div class="text-block uk-text-center uk-width-1-2@m uk-margin-auto">
+                {% if LANGUAGE_CODE == 'en' %}
+                    <h4>{{i.en_fullname}}</h4>
+                    <p>{{i.en_content|linebreaks}}</p>
+                {% else %}
+                    <h4>{{i.fullname}}</h4>
+                    <p>{{i.content|linebreaks}}</p>
+                {% endif %}
+                </div>
+            </div>
+            {% endfor %}
+        {% endfor %}
+        </div>
+    </div>
+</section>
