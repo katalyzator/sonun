@@ -4,47 +4,68 @@
 
 <!DOCTYPE html>
 <html lang="ru">
-  {% include "includes/_head.html" %}
-  <body>
-    <div class="uk-offcanvas-content">
-      <div id="hola">
+{% include "includes/_head.html" %}
+<body>
+<div class="uk-offcanvas-content">
+    <div id="hola">
         <div id="preloader"><span></span><span></span></div>
-      </div>
-      <div class="page-wrap">
+    </div>
+    <div class="page-wrap">
         <div class="home">
-          <div class="mobile-block-phone">
-            <div class="uk-margin"><a class="ph" href="tel: {%if contacts.telephone %}{{contacts.telephone}}{%else%}996706344212{%endif%}"><span uk-icon="icon: receiver;"></span></a></div>
-            <div class="uk-margin"><a class="wh" href="https://api.whatsapp.com/send?phone={%if contacts.telephone %}{{contacts.telephone}}{%else%}996706344212{%endif%}"><span uk-icon="icon: whatsapp;"></span></a></div>
-          </div>
-          {% include "includes/_sidebar.html" %}
-          <section class="video-block">
-            <div class="uk-cover-container uk-height-medium">
-              <iframe width="560" height="315" src="//www.youtube.com/embed/{% if youtube %}{{youtube}}{%else%}X8Z8okhkjv8{%endif%}?autoplay=1&amp;controls=0&amp;showinfo=0&amp;rel=0&amp;loop=1&amp;modestbranding=1&amp;wmode=transparent" frameborder="0" allowfullscreen uk-cover=""></iframe>
-              <div class="uk-position-center uk-text-center">
-                <object id="my-svg1" type="image/svg+xml" data="/static/img/svg/sofaswhite.svg"></object>
-                <h1>{% trans 'Manufacturing of furniture' %} <br> {% trans 'from classic to modern' %} <br> {% trans 'in order' %}</h1><a class="uk-button uk-button-default" href="{% url 'catalog' %}">{% trans 'See catalog' %}<span class="bg"><span></span></span></a>
-              </div>
-              <div class="navigation">
-                <div class="uk-container">
-                  <nav class="uk-navbar" uk-navbar="">
-                    <div class="uk-navbar-left">
-                      <ul class="uk-navbar-nav">
-                        <li class="uk-active"><a href="{% url 'about' %}">{% trans 'about us' %}</a></li>
-                        <li><a href="{% url 'catalog' %}">{% trans 'catalog' %}</a></li>
-                        <li><a href="{% url 'contact' %}">{% trans 'contact' %}</a></li>
-                      </ul>
-                    </div>
-                    <div class="uk-navbar-right">
-                      <ul class="uk-navbar-nav">
-                        <li><a href="tel: +996 (706) 344 212"><i class="fa fa-mobile" aria-hidden="true"></i><span>{% if contacts.telephone %}{{contacts.telephone}}{% else %}+996 (706) 344 212{% endif %}</span></a></li>
-                      </ul>
-                    </div>
-                  </nav>
-                </div>
-              </div>
+            <div class="mobile-block-phone">
+                <div class="uk-margin"><a class="ph" href="tel:
+                        {% if contacts.telephone %}{{ contacts.telephone }}{% else %}996706344212{% endif %}"><span
+                        uk-icon="icon: receiver;"></span></a></div>
+                <div class="uk-margin"><a class="wh" href="https://api.whatsapp.com/send?phone=
+                        {% if contacts.telephone %}{{ contacts.telephone }}{% else %}996706344212{% endif %}"><span
+                        uk-icon="icon: whatsapp;"></span></a></div>
             </div>
-          </section>
-          <!-- <section class="home-slider">
+            {% include "includes/_sidebar.html" %}
+            <section class="video-block">
+                <div class="uk-cover-container uk-height-medium">
+{#                    <iframe width="560" height="315" src="//www.youtube.com/embed/#}
+{#                            {% if youtube %}{{ youtube }}{% else %}X8Z8okhkjv8{% endif %}?autoplay=1&amp;controls=0&amp;showinfo=0&amp;rel=0&amp;loop=1&amp;modestbranding=1&amp;wmode=transparent"#}
+{#                            frameborder="0" allowfullscreen uk-cover=""></iframe>#}
+                    <video autoplay loop muted playsinline="" uk-cover="">
+                        <source src="{{ video.video.url }}" type="video/mp4">
+                    </video>
+
+
+                    <div class="uk-position-center uk-text-center">
+                        <object id="my-svg1" type="image/svg+xml" data="/static/img/svg/logo-1.svg"></object>
+                        <img id="home-logo" src="/static/img/svg/logo-2.svg" alt="">
+                        <h1>{% trans 'Manufacturing of furniture' %} <br> {% trans 'from classic to modern' %}
+                            <br> {% trans 'in order' %}</h1><a class="uk-button uk-button-default animate-preloader"
+                                                               href="{% url 'catalog' %}">{% trans 'See catalog' %}<span
+                            class="bg"><i uk-icon="icon: arrow-right; ratio: 2"></i></span></a>
+                    </div>
+                    <div class="navigation">
+                        <div class="uk-container">
+                            <nav class="uk-navbar" uk-navbar="">
+                                <div class="uk-navbar-left">
+                                    <ul class="uk-navbar-nav">
+                                        <li class="uk-active"><a class="animate-preloader" href="{% url 'about' %}">{% trans 'about us' %}</a>
+                                        </li>
+                                        <li><a class="animate-preloader" href="{% url 'catalog' %}">{% trans 'catalog' %}</a></li>
+                                        <li><a class="animate-preloader" href="{% url 'contact' %}">{% trans 'contact' %}</a></li>
+                                    </ul>
+                                </div>
+                                <div class="uk-navbar-right">
+                                    <ul class="uk-navbar-nav">
+                                        <li><a href="tel: +996 (706) 344 212"><i class="fa fa-mobile"
+                                                                                 aria-hidden="true"></i><span>{% if contacts.telephone %}
+                                            {{ contacts.telephone }}{% else %}+996 (706) 344 212{% endif %}</span></a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+            <!-- <section class="home-slider">
             <div class="uk-grid uk-grid-collapse" uk-grid="">
               <div class="uk-width-expand@m uk-position-relative">
                 <div class="navigation">
@@ -86,7 +107,8 @@
                       {% if slider.count > 0 %}
                         {% for image_slider in slider %}
                           <li>
-                            <div class="uk-position-cover uk-animation-kenburns uk-animation-reverse uk-transform-origin-center"><img src="/media/{{image_slider.image}}" alt="" uk-cover=""></div>
+                            <div class="uk-position-cover uk-animation-kenburns uk-animation-reverse uk-transform-origin-center"><img src="/media/
+                {{image_slider.image}}" alt="" uk-cover=""></div>
                           </li>
                         {% endfor %}
                       {% else %}
@@ -101,221 +123,261 @@
               </div>
             </div>
           </section> -->
-          <section class="second-slider">
-            <div class="uk-grid uk-grid-collapse" uk-grid="">
-              <div class="uk-width-1-3@m">
-                <div>
-                  <div class="uk-position-relative uk-visible-toggle uk-light" uk-slideshow=" animation: push">
-                    <ul class="uk-slideshow-items" uk-height-viewport="" uk-scrollspy="target: &gt; li &gt; .description &gt; div; cls:uk-animation-slide-left-medium; delay: 100; repeat: true">
-                      
-                      {% if principles.count %}
-                        {% for princp in principles %}
-                          <li>
-                            <div class="uk-position-cover uk-animation-kenburns uk-animation-reverse uk-transform-origin-center image-block"><img src="/media/{{princp.image}}" alt="" uk-cover=""></div>
-                            <div class="uk-position-bottom uk-position-medium uk-text-left uk-light description">
-                              <h6 uk-slideshow-parallax="x: 100,-100">0{{forloop.counter}}</h6>
-                              <h5 uk-slideshow-parallax="x: 200,-200">{% trans 'principle' %}</h5>
-                              {% if LANGUAGE_CODE == 'en' %}
-                                <h3 uk-slideshow-parallax="x: 300,-300">{{princp.en_title}}</h3>
-                                <p uk-slideshow-parallax="x: 400,-400">{{princp.en_content|truncatechars:100|linebreaks}}</p>
-                              {% else %}
-                                <h3 uk-slideshow-parallax="x: 300,-300">{{princp.title}}</h3>
-                                <p uk-slideshow-parallax="x: 400,-400">{{princp.content|truncatechars:100|linebreaks}}</p>
-                              {% endif %}
-                            </div>
-                          </li>
-                        {% endfor %}
-                      {% else %}
-                        <li>
-                          <div class="uk-position-cover uk-animation-kenburns uk-animation-reverse uk-transform-origin-center image-block"><img src="/static/img/jpg/slider2.jpg" alt="" uk-cover=""></div>
-                          <div class="uk-position-bottom uk-position-medium uk-text-left uk-light description">
-                            <div>
-                              <h6 uk-slideshow-parallax="x: 100,-100">01</h6>
-                            </div>
-                            <div>
-                              <h5 uk-slideshow-parallax="x: 200,-200">{% trans 'principle' %}</h5>
-                            </div>
-                            <div>
-                              <h3 uk-slideshow-parallax="x: 300,-300">{% trans 'in your hands!' %}</h3>
-                            </div>
-                            <div>
-                              <p uk-slideshow-parallax="x: 400,-400">{% trans 'All our furniture is made by a pen and in this way the furniture is qualitative and practical.' %}</p>
-                            </div>
-                          </div>
-                        </li>
-                      {% endif %}
-                    </ul><a class="uk-position-bottom-left uk-position-small" href="#" uk-slideshow-item="previous"><span uk-icon="icon: arrow-left; ratio: 2"></span></a><a class="uk-position-bottom-right uk-position-small" href="#" uk-slideshow-item="next"><span uk-icon="icon: arrow-right; ratio: 2"></span></a>
-                    <ul class="uk-slideshow-nav uk-dotnav uk-flex-center uk-margin uk-position-bottom-center uk-position-small"></ul>
-                  </div>
-                </div>
-              </div>
-              <div class="uk-width-expand@m uk-position-relative" uk-scrollspy="target: &gt; div &gt; div; cls:uk-animation-slide-bottom-medium; delay: 100; repeat: true">
-                <div class="uk-text-center main-block uk-flex-middle uk-flex uk-flex-center">
-                  <div class="uk-overflow-hidden">
-                    {% if about.count > 0 %}
-                      {% for text in about %}
-                        {% if LANGUAGE_CODE == 'en' %}
-                          <!-- <h2 uk-parallax="opacity: 0,1; y: 100,0; scale: 0.5,1; viewport: 0.5;">{% trans 'A few informations about us' %}</h2> -->
-                          <h2 uk-parallax="opacity: 0,1; y: 100,0; scale: 0.5,1; viewport: 0.5;">{{text.en_title}}</h2>
-                          <p uk-parallax="opacity: 0,1; y: 100,0; scale: 0.5,1; viewport: 0.5;">{{text.en_content|truncatechars:100|linebreaks|slice:":400"}}</p>
-                        {% else %}
-                          <h2 uk-parallax="opacity: 0,1; y: 100,0; scale: 0.5,1; viewport: 0.5;">{{text.title}}</h2>
-                          <p uk-parallax="opacity: 0,1; y: 100,0; scale: 0.5,1; viewport: 0.5;">{{text.content|truncatechars:100|linebreaks|slice:":400"}}</p>
-                        {% endif %}
-                      {% endfor %}
-                    {% else %}
-                      <h2 uk-parallax="opacity: 0,1; y: 100,0; scale: 0.5,1; viewport: 0.5;">{% trans 'A few informations about us' %}</h2>
-                      <p uk-parallax="opacity: 0,1; y: 100,0; scale: 0.5,1; viewport: 0.5;">{% trans 'The furniture factory of classic handmade furniture and art furniture "SONUN FURNITURE" was founded in 2012.' %}</p>
-                      <p uk-parallax="opacity: 0,1; y: 100,0; scale: 0.5,1; viewport: 0.5;">{% trans 'During this period, the factory reached the quality of world-class production. Today classic handmade furniture produced by the company SONUN FURNITURE is sold not only in Kyrgyzstan, but also abroad.' %}</p>
-                      <p>{% trans 'To date, about one hundred models of art furniture from CLASSICS to MODERN are produced.' %}</p>
-                    {% endif %}
-                    <a class="uk-button uk-button-default" href="{% url 'catalog' %}">{% trans 'See catalog' %}<span class="bg"><span></span></span></a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
-          <section class="our_services">
-            <div class="uk-container" uk-scrollspy="target: &gt; div; cls:uk-animation-slide-bottom-medium; delay: 100; repeat: true">
-              <div class="uk-grid uk-grid-collapse" uk-grid="">
-                <div class="uk-width-1-3@m uk-flex uk-flex-middle">
-                  <div class="item">
-                    <h3>{% trans 'Our services' %}</h3>
-                    <div class="arrow-controll"></div>
-                  </div>
-                </div>
-                <div class="uk-width-expand@m">
-                  <div class="our_services_slider" uk-height-match="target: &gt; div &gt; div &gt; div &gt; div &gt; div &gt; div &gt; h4">
-                    {% if services.count %}
-                      {% for service in services %}
+            <section class="second-slider">
+                <div class="uk-grid uk-grid-collapse" uk-grid="">
+                    <div class="uk-width-1-3@m">
                         <div>
-                          <div class="item">
-                            <div class="uk-card uk-card-default uk-box-shadow-hover-large">
-                              <div class="uk-card-media-top uk-cover-container"><img data-lazy="/media/{{service.image}}" alt="" uk-cover=""></div>
-                              <div class="uk-card-body">
-                                <h4 class="uk-card-title" style="background-image: url(/static/img/png/sl1.png)">{{service.title}}</h4>
-                                {% if LANGUAGE_CODE == 'en' %}
-                                  <a class="uk-button uk-button-default" href="{% url 'service' service.slug %}">Read more</a>
-                                {% else %}
-                                  <a class="uk-button uk-button-default" href="{% url 'service' service.slug %}">Подробнее</a>
-                                {% endif %}
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      {% endfor %}
-                    {% else %}
-                      <div>
-                        <div class="item">
-                          <div class="uk-card uk-card-default uk-box-shadow-hover-large">
-                            <div class="uk-card-media-top uk-cover-container"><img data-lazy="/static/img/jpg/slider4.jpg" alt="" uk-cover=""></div>
-                            <div class="uk-card-body">
-                              <h4 class="uk-card-title" style=" background-image: url(/static/img/png/sl2.png)">{% trans '3D call designer' %}</h4><a class="uk-button uk-button-default" href="">{% trans 'Read more' %}</a>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div>
-                        <div class="item">
-                          <div class="uk-card uk-card-default uk-box-shadow-hover-large">
-                            <div class="uk-card-media-top uk-cover-container"><img data-lazy="/static/img/jpg/slider2.jpg" alt="" uk-cover=""></div>
-                            <div class="uk-card-body">
-                              <h4 class="uk-card-title" style=" background-image: url(/static/img/png/sl1.png)">{% trans '3D furniture design' %}</h4><a class="uk-button uk-button-default" href="">{% trans 'Read more' %}</a>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    {% endif %}
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
-          <section class="gallery_project">
-            <div class="uk-container" uk-scrollspy="target: &gt; ul; cls:uk-animation-slide-bottom-medium; delay: 100; repeat: true">
-              <ul class="uk-subnav uk-subnav-pill uk-flex-center uk-margin-remove uk-child-width-expand@l uk-child-width-1-6@m uk-child-width-1-4@s uk-child-width-1-2" uk-switcher="animation: uk-animation-slide-left-medium, uk-animation-slide-right-medium">
-                {% for i in pc_object %}
-                  <li>
-                    <a class="uk-flex uk-flex-middle" href="#">
-                      <div>
-                        <object id="my-svg{{forloop.counter}}" type="image/svg+xml" data="/static/img/svg/s{{forloop.counter}}.svg"></object>
-                        <!-- <img src="/static/img/png/t{{forloop.counter}}.png" alt=""> -->
-                        <h6>
-                          {% if LANGUAGE_CODE == 'en' %}
-                            {{i.category.en_name}}
-                          {% else %}
-                            {{i.category.name}}
-                          {% endif %}
-                        </h6>
-                      </div>
-                    </a>
-                  </li>
-                {% endfor %}
-              </ul>
-              <ul class="uk-switcher uk-margin">
-                {% for i in pc_object %}
-                  <li>
-                    <div class="uk-grid uk-grid-collapse uk-child-width-1-2@s" uk-grid="">
-                      {% for i in i.products %}
-                        <div>
-                          <div class="item"><a class="link" href="{% url 'project' i.slug %}"></a>
-                            <div class="uk-cover-container image"><img src="/media/{{i.image}}" alt="" uk-cover="">
-                              <p class="uk-h4 uk-margin-remove">{{i.category.image}}</p>
-                            </div>
-                            <div class="back-link uk-position-cover uk-flex uk-flex-middle uk-flex-center">
-                              <div class="uk-text-center">
-                                {% if LANGUAGE_CODE == 'en' %}
-                                  <h4>{{i.category.en_name}}</h4>
-                                  <h3>{{i.en_title}}</h3><span uk-icon="icon: search; ratio: 2"></span>
-                                {% else %}
-                                  <h4>{{i.category.name}}</h4>
-                                  <h3>{{i.title}}</h3><span uk-icon="icon: search; ratio: 2"></span>
-                                {% endif %}
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      {% endfor %}
-                  </li>
-                {% endfor %}
-              </ul>
-              <div class="uk-text-center uk-margin all-project"><a class="uk-button uk-button-default" href="{% url 'catalog' %}">{% trans 'To catalog' %}<span class="bg"><span></span></span></a></div>
-            </div>
-          </section>
-          <section class="form-block">
-            <div class="uk-container" uk-scrollspy="target: &gt; div; cls:uk-animation-slide-bottom-medium; delay: 100; repeat: true">
-              <div class="uk-grid uk-flex-center uk-text-center">
-                <div class="uk-width-1-2@m" id="subscribe">
-                  <div><img src="/static/img/png/sofa-from.png" alt="">
-                    {% include "includes/_messages.html" %}
-                    <h2>{% trans 'Get a profitable offer from sonun mebel' %}</h2>
-                    <form action="{% url 'subscribe' %}" method="post">
-                      {% csrf_token %}
-                      <div class="uk-margin">
-                        <div class="uk-position-relative">
-                          <button class="uk-form-icon uk-form-icon-flip" uk-icon="icon: mail" id="subButon"></button>
-                          {{form_subscribe.email}}
-                        </div>
-                      </div>
-                      <p id="subscribeMessages"></p>
-                      <div class="loader"></div>
-                    </form>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
-          {% if testimonial|length > 0 %}
-            {% include "includes/_testis.html" %}
-          {% endif %}
-          <section class="maps-block" uk-scrollspy="target: &gt; iframe; cls:uk-animation-slide-right-medium; delay: 100; repeat: true">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d11696.414767484352!2d74.5756082!3d42.870655500000005!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sru!2skg!4v1523537042699" width="100%" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
-          </section>
-          {% include "includes/_footer.html" %}
-      </div>
-      </div>
-    </div>
+                            <div class="uk-position-relative uk-visible-toggle uk-light"
+                                 uk-slideshow=" animation: push">
+                                <ul class="uk-slideshow-items" uk-height-viewport=""
+                                    uk-scrollspy="target: &gt; li &gt; .description &gt; div; cls:uk-animation-slide-left-medium; delay: 100; repeat: true">
 
-    {% include "_base_js.html" %}
-  </body>
+                                    {% if principles.count %}
+                                        {% for princp in principles %}
+                                            <li>
+                                                <div class="uk-position-cover uk-animation-kenburns uk-animation-reverse uk-transform-origin-center image-block">
+                                                    <img src="/media/{{ princp.image }}" alt="" uk-cover=""></div>
+                                                <div class="uk-position-bottom uk-position-medium uk-text-left uk-light description">
+                                                    <h6 uk-slideshow-parallax="x: 100,-100">0{{ forloop.counter }}</h6>
+                                                    <h5 uk-slideshow-parallax="x: 200,-200">{% trans 'principle' %}</h5>
+                                                    {% if LANGUAGE_CODE == 'en' %}
+                                                        <h3 uk-slideshow-parallax="x: 300,-300">{{ princp.en_title }}</h3>
+                                                        <p uk-slideshow-parallax="x: 400,-400">{{ princp.en_content|truncatechars:100|linebreaks }}</p>
+                                                    {% else %}
+                                                        <h3 uk-slideshow-parallax="x: 300,-300">{{ princp.title }}</h3>
+                                                        <p uk-slideshow-parallax="x: 400,-400">{{ princp.content|truncatechars:100|linebreaks }}</p>
+                                                    {% endif %}
+                                                </div>
+                                            </li>
+                                        {% endfor %}
+                                    {% else %}
+                                        <li>
+                                            <div class="uk-position-cover uk-animation-kenburns uk-animation-reverse uk-transform-origin-center image-block">
+                                                <img src="/static/img/jpg/slider2.jpg" alt="" uk-cover=""></div>
+                                            <div class="uk-position-bottom uk-position-medium uk-text-left uk-light description">
+                                                <div>
+                                                    <h6 uk-slideshow-parallax="x: 100,-100">01</h6>
+                                                </div>
+                                                <div>
+                                                    <h5 uk-slideshow-parallax="x: 200,-200">{% trans 'principle' %}</h5>
+                                                </div>
+                                                <div>
+                                                    <h3 uk-slideshow-parallax="x: 300,-300">{% trans 'in your hands!' %}</h3>
+                                                </div>
+                                                <div>
+                                                    <p uk-slideshow-parallax="x: 400,-400">{% trans 'All our furniture is made by a pen and in this way the furniture is qualitative and practical.' %}</p>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    {% endif %}
+                                </ul>
+                                <a class="uk-position-bottom-left uk-position-small" href="#"
+                                   uk-slideshow-item="previous"><span uk-icon="icon: arrow-left; ratio: 2"></span></a><a
+                                    class="uk-position-bottom-right uk-position-small" href="#"
+                                    uk-slideshow-item="next"><span uk-icon="icon: arrow-right; ratio: 2"></span></a>
+                                <ul class="uk-slideshow-nav uk-dotnav uk-flex-center uk-margin uk-position-bottom-center uk-position-small"></ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="uk-width-expand@m uk-position-relative"
+                         uk-scrollspy="target: &gt; div &gt; div; cls:uk-animation-slide-bottom-medium; delay: 100; repeat: true">
+                        <div class="uk-text-center main-block uk-flex-middle uk-flex uk-flex-center">
+                            <div class="uk-overflow-hidden">
+                                {% if about.count > 0 %}
+                                    {% for text in about %}
+                                        {% if LANGUAGE_CODE == 'en' %}
+                                            <!-- <h2 uk-parallax="opacity: 0,1; y: 100,0; scale: 0.5,1; viewport: 0.5;">{% trans 'A few informations about us' %}</h2> -->
+                                            <h2 uk-parallax="opacity: 0,1; y: 100,0; scale: 0.5,1; viewport: 0.5;">{{ text.en_title }}</h2>
+                                            <p uk-parallax="opacity: 0,1; y: 100,0; scale: 0.5,1; viewport: 0.5;">{{ text.en_content|truncatechars:100|linebreaks|slice:":400" }}</p>
+                                        {% else %}
+                                            <h2 uk-parallax="opacity: 0,1; y: 100,0; scale: 0.5,1; viewport: 0.5;">{{ text.title }}</h2>
+                                            <p uk-parallax="opacity: 0,1; y: 100,0; scale: 0.5,1; viewport: 0.5;">{{ text.content|truncatechars:100|linebreaks|slice:":400" }}</p>
+                                        {% endif %}
+                                    {% endfor %}
+                                {% else %}
+                                    <h2 uk-parallax="opacity: 0,1; y: 100,0; scale: 0.5,1; viewport: 0.5;">{% trans 'A few informations about us' %}</h2>
+                                    <p uk-parallax="opacity: 0,1; y: 100,0; scale: 0.5,1; viewport: 0.5;">{% trans 'The furniture factory of classic handmade furniture and art furniture "SONUN FURNITURE" was founded in 2012.' %}</p>
+                                    <p uk-parallax="opacity: 0,1; y: 100,0; scale: 0.5,1; viewport: 0.5;">{% trans 'During this period, the factory reached the quality of world-class production. Today classic handmade furniture produced by the company SONUN FURNITURE is sold not only in Kyrgyzstan, but also abroad.' %}</p>
+                                    <p>{% trans 'To date, about one hundred models of art furniture from CLASSICS to MODERN are produced.' %}</p>
+                                {% endif %}
+                                <a class="uk-button uk-button-default animate-preloader"
+                                   href="{% url 'catalog' %}">{% trans 'See catalog' %}<span
+                                        class="bg"><i uk-icon="icon: arrow-right; ratio: 2"></i></span></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="our_services">
+                <div class="uk-container"
+                     uk-scrollspy="target: &gt; div; cls:uk-animation-slide-bottom-medium; delay: 100; repeat: true">
+                    <div class="uk-grid uk-grid-collapse" uk-grid="">
+                        <div class="uk-width-1-3@m uk-flex uk-flex-middle">
+                            <div class="item">
+                                <h3>{% trans 'Our services' %}</h3>
+                                <div class="arrow-controll"></div>
+                            </div>
+                        </div>
+                        <div class="uk-width-expand@m">
+                            <div class="our_services_slider"
+                                 uk-height-match="target: &gt; div &gt; div &gt; div &gt; div &gt; div &gt; div &gt; h4">
+                                {% if services.count %}
+                                    {% for service in services %}
+                                        <div>
+                                            <div class="item">
+                                                <div class="uk-card uk-card-default uk-box-shadow-hover-large">
+                                                    <div class="uk-card-media-top uk-cover-container"><img
+                                                            data-lazy="/media/{{ service.image }}" alt="" uk-cover="">
+                                                    </div>
+                                                    <div class="uk-card-body">
+                                                        <h4 class="uk-card-title"
+                                                            style="background-image: url({% static 'img/png/sl1.png' %})">{{ service.title }}</h4>
+                                                        {% if LANGUAGE_CODE == 'en' %}
+                                                            <a class="uk-button uk-button-default animate-preloader"
+                                                               href="{% url 'service' service.slug %}">Read more</a>
+                                                        {% else %}
+                                                            <a class="uk-button uk-button-default animate-preloader"
+                                                               href="{% url 'service' service.slug %}">Подробнее</a>
+                                                        {% endif %}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    {% endfor %}
+                                {% else %}
+                                    <div>
+                                        <div class="item">
+                                            <div class="uk-card uk-card-default uk-box-shadow-hover-large">
+                                                <div class="uk-card-media-top uk-cover-container"><img
+                                                        data-lazy="/static/img/jpg/slider4.jpg" alt="" uk-cover="">
+                                                </div>
+                                                <div class="uk-card-body">
+                                                    <h4 class="uk-card-title"
+                                                        style=" background-image: url({% static 'img/png/sl2.png' %})">{% trans '3D call designer' %}</h4>
+                                                    <a class="uk-button uk-button-default animate-preloader"
+                                                       href="">{% trans 'Read more' %}</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="item">
+                                            <div class="uk-card uk-card-default uk-box-shadow-hover-large">
+                                                <div class="uk-card-media-top uk-cover-container"><img
+                                                        data-lazy="/static/img/jpg/slider2.jpg" alt="" uk-cover="">
+                                                </div>
+                                                <div class="uk-card-body">
+                                                    <h4 class="uk-card-title"
+                                                        style=" background-image: url({% static 'img/png/sl1.png' %})">{% trans '3D furniture design' %}</h4>
+                                                    <a class="uk-button uk-button-default animate-preloader"
+                                                       href="">{% trans 'Read more' %}</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="gallery_project">
+                <div class="uk-container"
+                     uk-scrollspy="target: &gt; ul; cls:uk-animation-slide-bottom-medium; delay: 100; repeat: true">
+                    <ul class="uk-subnav uk-subnav-pill uk-flex-center uk-margin-remove uk-child-width-expand@l uk-child-width-1-6@m uk-child-width-1-4@s uk-child-width-1-2"
+                        uk-switcher="animation: uk-animation-slide-left-medium, uk-animation-slide-right-medium">
+                        {% for i in pc_object %}
+                            <li>
+                                <a class="uk-flex uk-flex-middle" href="#">
+                                    <div>
+                                        <object id="my-svg{{ forloop.counter }}" type="image/svg+xml"
+                                                data="/static/img/svg/s{{ forloop.counter }}.svg"></object>
+                                        <!-- <img src="/static/img/png/t{{forloop.counter}}.png" alt=""> -->
+                                        <h6>
+                                            {% if LANGUAGE_CODE == 'en' %}
+                                                {{ i.category.en_name }}
+                                            {% else %}
+                                                {{ i.category.name }}
+                                            {% endif %}
+                                        </h6>
+                                    </div>
+                                </a>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                    <ul class="uk-switcher uk-margin">
+                        {% for i in pc_object %}
+                            <li>
+                                <div class="uk-grid uk-grid-collapse uk-child-width-1-2@s" uk-grid="">
+                                    {% for i in i.products %}
+                                        <div>
+                                            <div class="item"><a class="link" href="{% url 'project' i.slug %}"></a>
+                                                <div class="uk-cover-container image"><img src="/media/{{ i.image }}"
+                                                                                           alt="" uk-cover="">
+                                                    <p class="uk-h4 uk-margin-remove">{{ i.category.image }}</p>
+                                                </div>
+                                                <div class="back-link uk-position-cover uk-flex uk-flex-middle uk-flex-center">
+                                                    <div class="uk-text-center">
+                                                        {% if LANGUAGE_CODE == 'en' %}
+                                                            <h4>{{ i.category.en_name }}</h4>
+                                                            <h3>{{ i.en_title }}</h3>
+                                                            <span uk-icon="icon: search; ratio: 2"></span>
+                                                        {% else %}
+                                                            <h4>{{ i.category.name }}</h4>
+                                                            <h3>{{ i.title }}</h3>
+                                                            <span uk-icon="icon: search; ratio: 2"></span>
+                                                        {% endif %}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    {% endfor %}
+                            </li>
+                        {% endfor %}
+                    </ul>
+                    <div class="uk-text-center uk-margin all-project">
+                        <a class="uk-button uk-button-default" href="{% url 'catalog' %}">{% trans 'To catalog' %}<span
+                                class="bg"><i uk-icon="icon: arrow-right; ratio: 2"></i></span></a></div>
+                </div>
+            </section>
+            <section class="form-block">
+                <div class="uk-container"
+                     uk-scrollspy="target: &gt; div; cls:uk-animation-slide-bottom-medium; delay: 100; repeat: true">
+                    <div class="uk-grid uk-flex-center uk-text-center">
+                        <div class="uk-width-1-2@m" id="subscribe">
+                            <div><img src="/static/img/png/sofa-from.png" alt="">
+                                {% include "includes/_messages.html" %}
+                                <h2>{% trans 'Get a profitable offer from sonun mebel' %}</h2>
+                                <form action="{% url 'subscribe' %}" method="post">
+                                    {% csrf_token %}
+                                    <div class="uk-margin">
+                                        <div class="uk-position-relative">
+                                            <button class="uk-form-icon uk-form-icon-flip" uk-icon="icon: mail"
+                                                    id="subButon"></button>
+                                            {{ form_subscribe.email }}
+                                        </div>
+                                    </div>
+                                    <p id="subscribeMessages"></p>
+                                    <div class="loader"></div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            {% if testimonial|length > 0 %}
+                {% include "includes/_testis.html" %}
+            {% endif %}
+            <section class="maps-block"
+                     uk-scrollspy="target: &gt; iframe; cls:uk-animation-slide-right-medium; delay: 100; repeat: true">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d11696.414767484352!2d74.5756082!3d42.870655500000005!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sru!2skg!4v1523537042699"
+                        width="100%" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+            </section>
+            {% include "includes/_footer.html" %}
+        </div>
+    </div>
+</div>
+
+{% include "_base_js.html" %}
+</body>
 </html>

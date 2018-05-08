@@ -42,19 +42,19 @@
         <button class="uk-offcanvas-close" type="button"><img src="/static/img/png/menu.png" alt=""></button>
         <ul class="uk-nav uk-nav-primary uk-nav-center uk-margin-auto-vertical uk-text-right">
             {% with request.resolver_match.url_name as url_endpoint %}
-                <li class="nav-element uk-active {% if url_endpoint == 'index' %}uk-active{% endif %}"><a href="{% url 'index' %}">{% trans 'HOME' %}</a>
+                <li class="nav-element uk-active {% if url_endpoint == 'index' %}uk-active{% endif %}"><a class="animate-preloader" href="{% url 'index' %}">{% trans 'HOME' %}</a>
                     <object id="my-svg-nav-1" type="image/svg+xml" data="/static/img/svg/about.svg"></object>
                 </li>
-                <li class="nav-element {% if url_endpoint == 'about' %}uk-active{% endif %}"><a href="{% url 'about' %}">{% trans 'ABOUT US' %}</a>
+                <li class="nav-element {% if url_endpoint == 'about' %}uk-active{% endif %}"><a class="animate-preloader" href="{% url 'about' %}">{% trans 'ABOUT US' %}</a>
                     <object id="my-svg-nav-2" type="image/svg+xml" data="/static/img/svg/design.svg"></object>
                 </li>
-                <li class="nav-element {% if url_endpoint == 'catalog' %}uk-active{% endif %}"><a href="{% url 'catalog' %}">{% trans 'CATALOG' %}</a>
+                <li class="nav-element {% if url_endpoint == 'catalog' %}uk-active{% endif %}"><a class="animate-preloader" href="{% url 'catalog' %}">{% trans 'CATALOG' %}</a>
                     <object id="my-svg-nav-3" type="image/svg+xml" data="/static/img/svg/portfolio.svg"></object>
                 </li>
-                <li class="nav-element {% if url_endpoint == 'clients' %}uk-active{% endif %}"><a href="{% url 'clients' %}">{% trans 'OUR CLIENTS' %}</a>
+                <li class="nav-element {% if url_endpoint == 'clients' %}uk-active{% endif %}"><a class="animate-preloader" href="{% url 'clients' %}">{% trans 'OUR CLIENTS' %}</a>
                     <object id="my-svg-nav-4" type="image/svg+xml" data="/static/img/svg/shop.svg"></object>
                 </li>
-                <li class="nav-element {% if url_endpoint == 'contact' %}uk-active{% endif %}"><a href="{% url 'contact' %}">{% trans 'CONTACT' %}</a>
+                <li class="nav-element {% if url_endpoint == 'contact' %}uk-active{% endif %}"><a class="animate-preloader" href="{% url 'contact' %}">{% trans 'CONTACT' %}</a>
                     <object id="my-svg-nav-5" type="image/svg+xml" data="/static/img/svg/contact.svg"></object>
                 </li>
             {% endwith %}

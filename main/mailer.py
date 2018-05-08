@@ -2,6 +2,7 @@ from django.core import mail
 from django.core.mail import EmailMessage
 from django.template.loader import get_template
 
+
 class Mailer:
     """
     Send email messages helper class

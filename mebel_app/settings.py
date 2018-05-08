@@ -16,7 +16,6 @@ from django.utils.translation import ugettext_lazy as _
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.0/howto/deployment/checklist/
 
@@ -24,9 +23,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'ql+!qx4adpv&-8xj3ib%=mpa&54m8-0m@u==-vln0q)e+5y1cm'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['*']#['www.sonunmebel.com','185.243.247.47']
+ALLOWED_HOSTS = ['*']  # ['www.sonunmebel.com','185.243.247.47']
 
 # Application definition
 
@@ -116,22 +115,21 @@ LOGGING = {
 
 WSGI_APPLICATION = 'mebel_app.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
 
 DATABASES = {
     'default': {
-        # 'ENGINE': 'django.db.backends.sqlite3',
-        # 'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'sonun',
-        'USER': 'postgres',
-        'PASSWORD': 'sonun_db_123@@!#!',
-        'HOST': 'localhost',
-        'PORT': '5432',
-        'CHARSET': 'utf8',
-        'COLLATION': 'utf8_general_ci',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        # 'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        # 'NAME': 'sonun',
+        # 'USER': 'postgres',
+        # 'PASSWORD': 'sonun_db_123@@!#!',
+        # 'HOST': 'localhost',
+        # 'PORT': '5432',
+        # 'CHARSET': 'utf8',
+        # 'COLLATION': 'utf8_general_ci',
     }
 }
 
@@ -152,7 +150,6 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
-
 
 # Internationalization
 # https://docs.djangoproject.com/en/2.0/topics/i18n/
@@ -204,7 +201,7 @@ APP_EMAIL = 'sonunmebel.kg@gmail.com'
 
 CELERY_BROKER_URL = 'amqp://guest:guest@localhost:5672/'
 
-CELERY_ACCEPT_CONTENT = ['json','pickle']
+CELERY_ACCEPT_CONTENT = ['json', 'pickle']
 
 EMAIL_HOST = 'smtp.gmail.com'
 
@@ -214,6 +211,6 @@ EMAIL_HOST_USER = os.environ.get('USER_EMAIL') or 'sonunmebel.kg'
 
 EMAIL_HOST_PASSWORD = os.environ.get('PASS_EMAIL') or 'meder123'
 
-EMAIL_USE_TLS = True # TLS settings
+EMAIL_USE_TLS = True  # TLS settings
 
 EMAIL_BACKEND = 'djcelery_email.backends.CeleryEmailBackend'

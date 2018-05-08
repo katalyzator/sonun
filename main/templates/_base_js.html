@@ -6,35 +6,55 @@
 <script src="{% static 'js/infinite.min.js' %}"></script>
 
 <script>
-  $(window).load(function () {
-    new Vivus('my-svg1', {duration: 300, delay: 100});
-    new Vivus('my-svg2', {duration: 100});
-    new Vivus('my-svg3', {duration: 100});
-    new Vivus('my-svg4', {duration: 100});
-    new Vivus('my-svg5', {duration: 100});
-    new Vivus('my-svg6', {duration: 100});
-    new Vivus('my-svg7', {duration: 100});
-    new Vivus('my-svg8', {duration: 100});
-    new Vivus('my-svg9', {duration: 100});
-    new Vivus('my-svg10', {duration: 100});
-  });
-  
-  function initHoverNavElements(object_li,object_id,nav_element){
-      $(object_li).hover(function(){
-              nav_element.play(1)
-          },function(){
-              nav_element.stop()
-              nav_element.play(-1)
+      $(window).load(function () {
+      new Vivus('my-svg1', {duration: 300});
+      new Vivus('my-svg2', {duration: 200});
+      new Vivus('my-svg3', {duration: 200});
+      new Vivus('my-svg4', {duration: 200});
+      new Vivus('my-svg5', {duration: 200});
+      new Vivus('my-svg6', {duration: 200});
+      new Vivus('my-svg7', {duration: 200});
+      new Vivus('my-svg8', {duration: 200});
+      new Vivus('my-svg9', {duration: 200});
+      new Vivus('my-svg10', {duration: 200});
+      $('#home-logo').hide();
+      setTimeout(function(){
+      	$('#home-logo').fadeIn('slow');
+      },5000);
+
+      function initHoverNavElements(object_li,object_id,nav_element){
+      	nav_element.reset();
+      	nav_element.stop();
+      	$(object_li).hover(function(){
+      			nav_element.play(1)
+      		},function(){
+      			//- nav_element.stop()
+      			//- nav_element.play(-1)
+      	})
+      	$(object_li).on('mouseleave', function () {
+      		nav_element.stop()
+      		nav_element.play(-1)
+      	});
+      }
+      //- UIkit.offcanvas('#offcanvas-push').on('shown', function() {
+      //- 	$.each($('.uk-nav-primary li'),function(i,obj){
+      //- 			var object_id = $(obj).find('object').attr('id');
+      //- 			var nav_element = new Vivus(object_id, {duration: 100});
+      //- 			initHoverNavElements($(this),object_id,nav_element);
+      //- 		});
+      //- 	});
+      //- })
+
+      UIkit.util.on(document, 'shown', '#offcanvas-push', function() {
+      	$.each($('.uk-nav-primary li'),function(i,obj){
+      			var object_id = $(obj).find('object').attr('id');
+      			var nav_element = new Vivus(object_id, {duration: 100});
+      			initHoverNavElements($(this),object_id,nav_element);
+      		});
+      	});
       })
-  }
-  
-  $(document).ready(function(){
-          $.each($('.uk-nav-primary li'),function(i,obj){
-              var object_id = $(obj).find('object').attr('id');
-              var nav_element = new Vivus(object_id, {duration: 100});
-              initHoverNavElements($(this),object_id,nav_element);
-          });
-  })
+
+
 </script>
 
 <script type="text/javascript">

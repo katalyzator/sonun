@@ -35,10 +35,10 @@
                           <div class="uk-text-center uk-margin all-project" uk-slideshow-parallax="x: 300,-300">
                             {% if LANGUAGE_CODE == 'en' %}
                               <a class="uk-button uk-button-default" href="{% url 'project' i.slug %}">Read more
-                              <span class="bg"><span></span></span></a>
+                              <span class="bg"><i uk-icon="icon: arrow-right; ratio: 2"></i></span></a>
                             {% else %}
                               <a class="uk-button uk-button-default" href="{% url 'project' i.slug %}">Подробнее
-                              <span class="bg"><span></span></span></a>
+                              <span class="bg"><i uk-icon="icon: arrow-right; ratio: 2"></i></span></a>
                             {% endif %}
                           </div>
                         </div>
@@ -54,7 +54,8 @@
                       <div uk-slideshow-parallax="scale: 1,1,0.8">
                         <h3 uk-slideshow-parallax="x: 100,-100">классика</h3>
                         <h2 uk-slideshow-parallax="x: 200,-200">Классический Орбитраж</h2>
-                        <div class="uk-text-center uk-margin all-project" uk-slideshow-parallax="x: 300,-300"><a class="uk-button uk-button-default" href="{% url 'about' %}">{% trans 'About us' %}<span class="bg"><span></span></span></a></div>
+                        <div class="uk-text-center uk-margin all-project" uk-slideshow-parallax="x: 300,-300">
+                            <a class="uk-button animate-preloader uk-button-default" href="{% url 'about' %}">{% trans 'About us' %}<span class="bg"><i uk-icon="icon: arrow-right; ratio: 2"></i></span></a></div>
                       </div>
                     </div>
                   </li>
@@ -106,7 +107,8 @@
                 {% endfor %}
               </ul>
               {% if pc_object|length > 15 %}
-                <div class="uk-text-center uk-margin all-project"><a class="uk-button uk-button-default" href="">{% trans 'Show more' %}<span class="bg"><span></span></span></a></div>
+                <div class="uk-text-center uk-margin all-project">
+                    <a class="uk-button uk-button-default" href="">{% trans 'Show more' %}<span class="bg"><i uk-icon="icon: arrow-right; ratio: 2"></i></span></a></div>
               {% endif %}
             </div>
           </section>
