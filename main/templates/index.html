@@ -23,9 +23,9 @@
             {% include "includes/_sidebar.html" %}
             <section class="video-block">
                 <div class="uk-cover-container uk-height-medium">
-{#                    <iframe width="560" height="315" src="//www.youtube.com/embed/#}
-{#                            {% if youtube %}{{ youtube }}{% else %}X8Z8okhkjv8{% endif %}?autoplay=1&amp;controls=0&amp;showinfo=0&amp;rel=0&amp;loop=1&amp;modestbranding=1&amp;wmode=transparent"#}
-{#                            frameborder="0" allowfullscreen uk-cover=""></iframe>#}
+                    {#                    <iframe width="560" height="315" src="//www.youtube.com/embed/#}
+                    {#                            {% if youtube %}{{ youtube }}{% else %}X8Z8okhkjv8{% endif %}?autoplay=1&amp;controls=0&amp;showinfo=0&amp;rel=0&amp;loop=1&amp;modestbranding=1&amp;wmode=transparent"#}
+                    {#                            frameborder="0" allowfullscreen uk-cover=""></iframe>#}
                     <video autoplay loop muted playsinline="" uk-cover="">
                         <source src="{{ video.video.url }}" type="video/mp4">
                     </video>
@@ -44,10 +44,13 @@
                             <nav class="uk-navbar" uk-navbar="">
                                 <div class="uk-navbar-left">
                                     <ul class="uk-navbar-nav">
-                                        <li class="uk-active"><a class="animate-preloader" href="{% url 'about' %}">{% trans 'about us' %}</a>
+                                        <li class="uk-active"><a class="animate-preloader"
+                                                                 href="{% url 'about' %}">{% trans 'about us' %}</a>
                                         </li>
-                                        <li><a class="animate-preloader" href="{% url 'catalog' %}">{% trans 'catalog' %}</a></li>
-                                        <li><a class="animate-preloader" href="{% url 'contact' %}">{% trans 'contact' %}</a></li>
+                                        <li><a class="animate-preloader"
+                                               href="{% url 'catalog' %}">{% trans 'catalog' %}</a></li>
+                                        <li><a class="animate-preloader"
+                                               href="{% url 'contact' %}">{% trans 'contact' %}</a></li>
                                     </ul>
                                 </div>
                                 <div class="uk-navbar-right">
