@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'ql+!qx4adpv&-8xj3ib%=mpa&54m8-0m@u==-vln0q)e+5y1cm'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']  # ['www.sonunmebel.com','185.243.247.47']
 
@@ -120,16 +120,16 @@ WSGI_APPLICATION = 'mebel_app.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-        # 'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        # 'NAME': 'sonun',
-        # 'USER': 'postgres',
-        # 'PASSWORD': 'sonun_db_123@@!#!',
-        # 'HOST': 'localhost',
-        # 'PORT': '5432',
-        # 'CHARSET': 'utf8',
-        # 'COLLATION': 'utf8_general_ci',
+        # 'ENGINE': 'django.db.backends.sqlite3',
+        # 'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'sonun',
+        'USER': 'postgres',
+        'PASSWORD': 'sonun_db_123@@!#!',
+        'HOST': 'localhost',
+        'PORT': '5432',
+        'CHARSET': 'utf8',
+        'COLLATION': 'utf8_general_ci',
     }
 }
 
